@@ -171,7 +171,8 @@ def write_radio():
     ser.close()
     write_radio_window.hide()
 
-app = App(layout="grid", title="AR 8000", height=1200, width=800)
+
+app = App(layout="grid", title="AR 8000", height=1200, width=600)
 app.font = 'Courier'
 menubar = MenuBar(app,
                   toplevel=['File', 'Radio'],
@@ -231,7 +232,7 @@ for p in range(0, 50):
 comports = [port[0] for port in serial.tools.list_ports.comports()]
 
 read_radio_window = Window(app, title="Read radio memory bank",
-                           width=600, layout="grid", visible=False)
+                           width=600, height=200, layout="grid", visible=False)
 Text(read_radio_window, text="Port", grid=[0, 0], align="left")
 read_port = Combo(
     read_radio_window, options=comports, grid=[1, 0], align="left")
@@ -245,7 +246,7 @@ bank = Combo(read_radio_window, options=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
 PushButton(read_radio_window, text='Read', grid=[0, 3], command=read_radio)
 
 write_radio_window = Window(app, title="Write to radio",
-                            width=600, layout="grid", visible=False)
+                            width=600, height=200, layout="grid", visible=False)
 Text(write_radio_window, text="Port", grid=[0, 0], align="left")
 write_port = Combo(
     write_radio_window, options=comports, grid=[1, 0], align="left")
